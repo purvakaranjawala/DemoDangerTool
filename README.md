@@ -38,15 +38,25 @@ Now, when a pull request is opened, GitHub Actions will automatically run Danger
   The GitHub token is used to authenticate with the GitHub API and perform actions such as commenting on pull requests, creating issues, and updating labels. Without a valid token, Danger will not be able to interact with your GitHub repository.
   
   1. When danger init command is ran it provides a link to generate a github token: https://github.com/settings/tokens/new
+
   2. Give your token a descriptive name (e.g. "Danger Bot").
+
   3. Under "Select scopes", check the boxes for "repo" and "read:org".
+
   4. Click on the "Generate token" button at the bottom of the page.
+
   5. Copy *Generated token* 
+
   6. Go to your GitHub repository and click on the "Settings" tab.
+
   7. Click on "Secrets" in the sidebar.
+
   8. Click on the "New repository secret" button.
+
   9. Enter **DANGER_GITHUB_API_TOKEN** as the name of the secret.
+
   10. Paste the *token* into the value field of the secret.
+
   11. Save the secret
      
      Now we can use **${{ secrets.DANGER_GITHUB_API_TOKEN }}** in your GitHub Actions workflow or Dangerfile to authenticate with the GitHub API.

@@ -16,7 +16,7 @@ Here set up is done from Github account.
 Steps Followed:- 
 
 1. Add the **danger** gem to your Gemfile and run **bundle install** to install it.
-2. Run **bundle exec danger** init to generate a **Dangerfile** in the root of your repository.
+2. Run **bundle exec danger init**  to generate a **Dangerfile** in the root of your repository.
 3. Configure the Dangerfile to suit your needs. This can include setting up rules for code style, linting, and testing, as well as defining custom rules.
     ![Screenshot from 2023-03-09 15-56-43](https://user-images.githubusercontent.com/116082151/223996478-6036f1a5-36a6-460e-9262-a03524730a96.png)
 4. Commit the Dangerfile to your repository(or create a new repo on git for new project)

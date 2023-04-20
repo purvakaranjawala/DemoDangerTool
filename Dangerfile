@@ -1,3 +1,5 @@
+require 'pry'
+
 # Sometimes it's a README fix, or something like that - which isn't relevant for
 # including in a project's CHANGELOG for example
 declared_trivial = github.pr_title.include? "#trivial"
@@ -17,7 +19,14 @@ message = 'Please include a summary in your pull request description.'
 
 # Check if the pull request description includes a summary
 if github.pr_body.include?('# Summary')
-  puts 'PR includes summary'
+  message 'PR includes summary'
 else
   fail message
 end
+
+files = (git.modified_files + git.added_files).uniq
+rubocop.lint files
+github.dismiss_out_of_range_messages
+rubocop.lint inline_comment: true
+rubocop.lint rubocop_cmd: 'standardrb'
+

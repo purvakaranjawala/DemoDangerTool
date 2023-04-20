@@ -26,6 +26,7 @@ end
 
 files = (git.modified_files + git.added_files).uniq
 rubocop.lint files
-rubocop.lint inline_comments: true
+github.dismiss_out_of_range_messages
+rubocop.lint inline_comment: true
 rubocop.lint rubocop_cmd: 'standardrb'
 
